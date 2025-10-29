@@ -419,112 +419,6 @@
         left: 0;
       }
 
-      /* Subjects and Grade Levels specific styles */
-      .subject-grid,
-      .grade-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 3rem;
-      }
-
-      .subject-card,
-      .grade-card {
-        background: white;
-        border-radius: 15px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-        text-align: center;
-      }
-
-      .subject-card:hover,
-      .grade-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      }
-
-      .subject-icon,
-      .grade-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin: 0 auto 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        background: #e3f2fd;
-      }
-
-      .subject-title,
-      .grade-title {
-        font-size: 1.4rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        color: #333;
-      }
-
-      .subject-stats,
-      .grade-stats {
-        color: #666;
-        margin-bottom: 1.5rem;
-        font-size: 0.9rem;
-      }
-
-      .subject-button,
-      .grade-button {
-        width: 100%;
-        background: linear-gradient(135deg, #4caf50, #45a049);
-        color: white;
-        border: none;
-        padding: 0.8rem;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      .subject-button:hover,
-      .grade-button:hover {
-        background: linear-gradient(135deg, #45a049, #4caf50);
-      }
-
-      .game-preview {
-        position: relative;
-        height: 120px;
-        background: #f8f9fa;
-        border-radius: 10px;
-        margin-bottom: 1rem;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-      }
-
-      .game-preview img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .game-actions {
-        display: flex;
-        gap: 0.5rem;
-      }
-
-      .games-category-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .game-featured {
-        border: 2px solid #ffd700;
-        position: relative;
-      }
-
       /* Responsive */
       @media (max-width: 768px) {
         .main-layout {
@@ -547,11 +441,6 @@
         .nav-menu {
           gap: 1rem;
         }
-
-        .subject-grid,
-        .grade-grid {
-          grid-template-columns: 1fr;
-        }
       }
     </style>
   </head>
@@ -562,13 +451,13 @@
           <div class="logo">ChezaAI</div>
           <nav>
             <ul class="nav-menu">
-              <li><a href="#home">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="#subjects">Subjects</a></li>
-              <li><a href="#grade-levels">Grade Levels</a></li>
+              <li><a href="#grades">Grades</a></li>
               <li><a href="#games">Games</a></li>
-              <li><a href="#worksheets">Worksheets</a></li>
-              <li><a href="#teachers-hub">Teachers Hub</a></li>
-              <li><a href="#parents-hub">Parents Hub</a></li>
+              <li><a href="Worksheets.html">Worksheets</a></li>
+              <li><a href="teachers-hub.html">Teachers Hub</a></li>
+              <li><a href="ParentsHub.html">Parents Hub</a></li>
             </ul>
           </nav>
         </div>
@@ -579,6 +468,75 @@
       <!-- Home Page Content -->
       <div id="home-page" class="page-content">
         <div class="main-layout">
+          <aside class="sidebar">
+            <div class="filter-section">
+              <h3 class="filter-title">Subjects</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Mathematics</label>
+                <label><input type="checkbox" /> English</label>
+                <label><input type="checkbox" /> Kiswahili</label>
+                <label
+                  ><input type="checkbox" /> Science &amp; Technology</label
+                >
+                <label><input type="checkbox" /> Social Studies</label>
+                <label><input type="checkbox" /> Creative Arts</label>
+                <label
+                  ><input type="checkbox" /> Physical &amp; Health
+                  Education</label
+                >
+                <label><input type="checkbox" /> Life Skills Education</label>
+                <label><input type="checkbox" /> Agriculture</label>
+                <label><input type="checkbox" /> Home Science</label>
+                <label><input type="checkbox" /> Computer Science</label>
+                <label><input type="checkbox" /> Business Studies</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-title">Grade Levels</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Pre-Primary 1 (PP1)</label>
+                <label><input type="checkbox" /> Pre-Primary 2 (PP2)</label>
+                <label><input type="checkbox" /> Grade 1</label>
+                <label><input type="checkbox" /> Grade 2</label>
+                <label><input type="checkbox" /> Grade 3</label>
+                <label><input type="checkbox" /> Grade 4</label>
+                <label><input type="checkbox" /> Grade 5</label>
+                <label><input type="checkbox" /> Grade 6</label>
+                <label><input type="checkbox" /> Grade 7 (JSS 1)</label>
+                <label><input type="checkbox" /> Grade 8 (JSS 2)</label>
+                <label><input type="checkbox" /> Grade 9 (JSS 3)</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-title">CBC Competencies</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Critical Thinking</label>
+                <label
+                  ><input type="checkbox" /> Creativity &amp; Innovation</label
+                >
+                <label><input type="checkbox" /> Communication</label>
+                <label><input type="checkbox" /> Collaboration</label>
+                <label><input type="checkbox" /> Digital Literacy</label>
+                <label><input type="checkbox" /> Learning to Learn</label>
+                <label><input type="checkbox" /> Citizenship</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-title">Learning Areas</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Literacy</label>
+                <label><input type="checkbox" /> Numeracy</label>
+                <label><input type="checkbox" /> STEM</label>
+                <label><input type="checkbox" /> Creative Arts</label>
+                <label><input type="checkbox" /> Life Skills</label>
+                <label><input type="checkbox" /> Environmental Education</label>
+              </div>
+            </div>
+          </aside>
+
           <div class="main-content">
             <section class="hero-section">
               <h1 class="hero-title">Gamified Learning Made for CBC</h1>
@@ -621,7 +579,10 @@
                   <span class="tag tag-subject">Mathematics</span>
                   <span class="tag tag-cbc">Numeracy</span>
                 </div>
-                <a href="games/safari_math_game (3).html">
+                <a
+                  href="games/safari_math_game (3).html"
+                  style="text-decoration: none"
+                >
                   <button class="play-button">Play Now</button>
                 </a>
               </div>
@@ -732,6 +693,63 @@
         </section>
 
         <div class="main-layout">
+          <aside class="sidebar">
+            <div class="filter-section">
+              <h3 class="filter-title">Filter Games</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" checked /> Featured Games</label>
+                <label><input type="checkbox" /> New Games</label>
+                <label><input type="checkbox" /> Most Popular</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-title">By Subject</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Mathematics</label>
+                <label><input type="checkbox" /> English</label>
+                <label><input type="checkbox" /> Kiswahili</label>
+                <label><input type="checkbox" /> Science</label>
+                <label><input type="checkbox" /> Social Studies</label>
+                <label><input type="checkbox" /> Creative Arts</label>
+                <label><input type="checkbox" /> All Subjects</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-title">By Grade Level</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Pre-Primary (PP1-PP2)</label>
+                <label><input type="checkbox" /> Lower Primary (G1-G3)</label>
+                <label><input type="checkbox" /> Upper Primary (G4-G6)</label>
+                <label
+                  ><input type="checkbox" /> Junior Secondary (G7-G9)</label
+                >
+                <label><input type="checkbox" /> All Levels</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-title">By Difficulty</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Beginner</label>
+                <label><input type="checkbox" /> Intermediate</label>
+                <label><input type="checkbox" /> Advanced</label>
+              </div>
+            </div>
+
+            <div class="filter-section">
+              <h3 class="filter-title">By Game Type</h3>
+              <div class="filter-options">
+                <label><input type="checkbox" /> Adventure</label>
+                <label><input type="checkbox" /> Puzzle</label>
+                <label><input type="checkbox" /> Quiz</label>
+                <label><input type="checkbox" /> Simulation</label>
+                <label><input type="checkbox" /> Strategy</label>
+              </div>
+            </div>
+          </aside>
+
           <div class="main-content">
             <div class="games-header">
               <div class="games-count">Showing 48 educational games</div>
@@ -769,7 +787,16 @@
                     animals in this Kenyan adventure game.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span>4.9</span>
+                    </div>
                     <div class="game-difficulty difficulty-easy">
+                      <span>Easy</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -781,9 +808,8 @@
                     <span class="tag tag-cbc">Numeracy</span>
                   </div>
                   <div class="game-actions">
-                    <a href="games/safari_math_game (3).html">
-                      <button class="play-button">Play Now</button>
-                    </a>
+                    <button class="play-button">Play Now</button>
+                    <button class="secondary-button">Details</button>
                   </div>
                 </div>
 
@@ -802,7 +828,16 @@
                     and cultural elements.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">☆</span>
+                      <span>4.2</span>
+                    </div>
                     <div class="game-difficulty difficulty-medium">
+                      <span>Medium</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -814,12 +849,8 @@
                     <span class="tag tag-cbc">Critical Thinking</span>
                   </div>
                   <div class="game-actions">
-                    <a
-                      href="games/maasai_multiplication_game (1).html"
-                      style="text-decoration: none"
-                    >
-                      <button class="play-button">Play Now</button>
-                    </a>
+                    <button class="play-button">Play Now</button>
+                    <button class="secondary-button">Details</button>
                   </div>
                 </div>
 
@@ -838,8 +869,16 @@
                     wildlife using geometric principles.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span>4.8</span>
+                    </div>
                     <div class="game-difficulty difficulty-medium">
-                      <
+                      <span>Medium</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -851,12 +890,8 @@
                     <span class="tag tag-cbc">STEM</span>
                   </div>
                   <div class="game-actions">
-                    <a
-                      href="games/geometry_giraffes_game (1) (2).html"
-                      style="text-decoration: none"
-                    >
-                      <button class="play-button">Play Now</button>
-                    </a>
+                    <button class="play-button">Play Now</button>
+                    <button class="secondary-button">Details</button>
                   </div>
                 </div>
               </div>
@@ -885,7 +920,16 @@
                     set in Kenyan landscapes.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">☆</span>
+                      <span>4.3</span>
+                    </div>
                     <div class="game-difficulty difficulty-easy">
+                      <span>Easy</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -898,6 +942,7 @@
                   </div>
                   <div class="game-actions">
                     <button class="play-button">Play Now</button>
+                    <button class="secondary-button">Details</button>
                   </div>
                 </div>
 
@@ -916,7 +961,16 @@
                     parks and wildlife reserves.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span>4.7</span>
+                    </div>
                     <div class="game-difficulty difficulty-medium">
+                      <span>Medium</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -929,6 +983,7 @@
                   </div>
                   <div class="game-actions">
                     <button class="play-button">Play Now</button>
+                    <button class="secondary-button">Details</button>
                   </div>
                 </div>
 
@@ -947,7 +1002,16 @@
                     technology and local contexts.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">☆</span>
+                      <span>4.1</span>
+                    </div>
                     <div class="game-difficulty difficulty-hard">
+                      <span>Hard</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -960,6 +1024,7 @@
                   </div>
                   <div class="game-actions">
                     <button class="play-button">Play Now</button>
+                    <button class="secondary-button">Details</button>
                   </div>
                 </div>
               </div>
@@ -987,7 +1052,16 @@
                     ecosystems and biodiversity.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span>4.9</span>
+                    </div>
                     <div class="game-difficulty difficulty-medium">
+                      <span>Medium</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -1000,6 +1074,7 @@
                   </div>
                   <div class="game-actions">
                     <button class="play-button">Play Now</button>
+                    <button class="secondary-button">Details</button>
                   </div>
                 </div>
 
@@ -1018,7 +1093,16 @@
                     Kenyan agriculture.
                   </p>
                   <div class="game-stats">
+                    <div class="game-rating">
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">★</span>
+                      <span class="star">☆</span>
+                      <span>4.2</span>
+                    </div>
                     <div class="game-difficulty difficulty-easy">
+                      <span>Easy</span>
                       <div class="difficulty-bar">
                         <div class="difficulty-level"></div>
                       </div>
@@ -1029,434 +1113,13 @@
                     <span class="tag tag-subject">Science</span>
                     <span class="tag tag-cbc">Environmental Ed</span>
                   </div>
-
-                  <div class="game-actions"></div>
-                  <a href="games/plant_growth_game (1).html">
+                  <div class="game-actions">
                     <button class="play-button">Play Now</button>
-                  </a>
+                    <button class="secondary-button">Details</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Subjects Page Content -->
-      <div id="subjects-page" class="page-content" style="display: none">
-        <section class="page-hero">
-          <h1 class="page-title">CBC Subjects</h1>
-          <p class="page-description">
-            Explore all subjects in the Competency-Based Curriculum with games,
-            worksheets, and resources tailored for each
-          </p>
-        </section>
-
-        <div class="subject-grid">
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #e3f2fd">🔢</div>
-            <h3 class="subject-title">Mathematics</h3>
-            <p class="subject-stats">24 games • 156 worksheets</p>
-            <p class="resource-description">
-              Develop numeracy, problem-solving, and logical thinking skills
-              through interactive games and activities.
-            </p>
-            <button class="subject-button">Explore Mathematics</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #fff3e0">📚</div>
-            <h3 class="subject-title">English</h3>
-            <p class="subject-stats">18 games • 142 worksheets</p>
-            <p class="resource-description">
-              Build literacy, communication, and comprehension skills with
-              engaging stories and language games.
-            </p>
-            <button class="subject-button">Explore English</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #e8f5e8">🇰🇪</div>
-            <h3 class="subject-title">Kiswahili</h3>
-            <p class="subject-stats">15 games • 98 worksheets</p>
-            <p class="resource-description">
-              Master Kenya's national language through cultural stories,
-              vocabulary games, and conversation practice.
-            </p>
-            <button class="subject-button">Explore Kiswahili</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #e0f2f1">🔬</div>
-            <h3 class="subject-title">Science & Technology</h3>
-            <p class="subject-stats">22 games • 124 worksheets</p>
-            <p class="resource-description">
-              Explore the natural world, conduct virtual experiments, and learn
-              about technology applications.
-            </p>
-            <button class="subject-button">Explore Science</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #fff8e1">🗺️</div>
-            <h3 class="subject-title">Social Studies</h3>
-            <p class="subject-stats">12 games • 87 worksheets</p>
-            <p class="resource-description">
-              Learn about Kenyan history, geography, government, and citizenship
-              through interactive activities.
-            </p>
-            <button class="subject-button">Explore Social Studies</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #f3e5f5">🎨</div>
-            <h3 class="subject-title">Creative Arts</h3>
-            <p class="subject-stats">16 games • 76 worksheets</p>
-            <p class="resource-description">
-              Express creativity through music, art, drama, and dance activities
-              inspired by Kenyan culture.
-            </p>
-            <button class="subject-button">Explore Creative Arts</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #f9fbe7">🏃</div>
-            <h3 class="subject-title">Physical & Health Education</h3>
-            <p class="subject-stats">8 games • 54 worksheets</p>
-            <p class="resource-description">
-              Promote physical fitness, health awareness, and sports skills
-              through interactive activities.
-            </p>
-            <button class="subject-button">Explore PHE</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #e1f5fe">💡</div>
-            <h3 class="subject-title">Life Skills Education</h3>
-            <p class="subject-stats">14 games • 68 worksheets</p>
-            <p class="resource-description">
-              Develop essential life skills, values, and character education for
-              personal and social development.
-            </p>
-            <button class="subject-button">Explore Life Skills</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #fff3e0">🌱</div>
-            <h3 class="subject-title">Agriculture</h3>
-            <p class="subject-stats">10 games • 42 worksheets</p>
-            <p class="resource-description">
-              Learn about farming, food production, and environmental
-              conservation through practical activities.
-            </p>
-            <button class="subject-button">Explore Agriculture</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #e8f5e8">🏠</div>
-            <h3 class="subject-title">Home Science</h3>
-            <p class="subject-stats">9 games • 38 worksheets</p>
-            <p class="resource-description">
-              Develop practical skills for home management, nutrition, and
-              family well-being.
-            </p>
-            <button class="subject-button">Explore Home Science</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #e3f2fd">💻</div>
-            <h3 class="subject-title">Computer Science</h3>
-            <p class="subject-stats">17 games • 63 worksheets</p>
-            <p class="resource-description">
-              Build digital literacy, coding skills, and understanding of
-              technology in modern society.
-            </p>
-            <button class="subject-button">Explore Computer Science</button>
-          </div>
-
-          <div class="subject-card">
-            <div class="subject-icon" style="background: #f3e5f5">📊</div>
-            <h3 class="subject-title">Business Studies</h3>
-            <p class="subject-stats">11 games • 47 worksheets</p>
-            <p class="resource-description">
-              Learn about entrepreneurship, finance, and business concepts
-              through practical simulations.
-            </p>
-            <button class="subject-button">Explore Business Studies</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Grade Levels Page Content -->
-      <div id="grade-levels-page" class="page-content" style="display: none">
-        <section class="page-hero">
-          <h1 class="page-title">CBC Grade Levels</h1>
-          <p class="page-description">
-            Find age-appropriate games, worksheets, and resources for each CBC
-            grade level from Pre-Primary to Junior Secondary
-          </p>
-        </section>
-
-        <div class="grade-grid">
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #e3f2fd">👶</div>
-            <h3 class="grade-title">Pre-Primary 1 (PP1)</h3>
-            <p class="grade-stats">Age 4-5 years • 42 games • 128 worksheets</p>
-            <p class="resource-description">
-              Foundational skills development through play-based learning,
-              focusing on basic literacy, numeracy, and environmental awareness.
-            </p>
-            <button class="grade-button">Explore PP1 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #fff3e0">👧</div>
-            <h3 class="grade-title">Pre-Primary 2 (PP2)</h3>
-            <p class="grade-stats">Age 5-6 years • 56 games • 156 worksheets</p>
-            <p class="resource-description">
-              Enhanced pre-reading, pre-writing, and basic numeracy skills
-              preparing children for primary education.
-            </p>
-            <button class="grade-button">Explore PP2 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #e8f5e8">1️⃣</div>
-            <h3 class="grade-title">Grade 1</h3>
-            <p class="grade-stats">Age 6-7 years • 68 games • 184 worksheets</p>
-            <p class="resource-description">
-              Introduction to formal literacy and numeracy, basic environmental
-              activities, and creative expression.
-            </p>
-            <button class="grade-button">Explore Grade 1 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #e0f2f1">2️⃣</div>
-            <h3 class="grade-title">Grade 2</h3>
-            <p class="grade-stats">Age 7-8 years • 72 games • 192 worksheets</p>
-            <p class="resource-description">
-              Building on literacy and numeracy foundations, introducing basic
-              science and social studies concepts.
-            </p>
-            <button class="grade-button">Explore Grade 2 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #fff8e1">3️⃣</div>
-            <h3 class="grade-title">Grade 3</h3>
-            <p class="grade-stats">Age 8-9 years • 76 games • 204 worksheets</p>
-            <p class="resource-description">
-              Developing reading fluency, mathematical operations, and exploring
-              science and social studies in depth.
-            </p>
-            <button class="grade-button">Explore Grade 3 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #f3e5f5">4️⃣</div>
-            <h3 class="grade-title">Grade 4</h3>
-            <p class="grade-stats">
-              Age 9-10 years • 84 games • 218 worksheets
-            </p>
-            <p class="resource-description">
-              Upper primary foundation with more complex concepts in all
-              subjects and introduction to new learning areas.
-            </p>
-            <button class="grade-button">Explore Grade 4 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #f9fbe7">5️⃣</div>
-            <h3 class="grade-title">Grade 5</h3>
-            <p class="grade-stats">
-              Age 10-11 years • 88 games • 226 worksheets
-            </p>
-            <p class="resource-description">
-              Advanced primary education with emphasis on critical thinking,
-              problem-solving, and creative expression.
-            </p>
-            <button class="grade-button">Explore Grade 5 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #e1f5fe">6️⃣</div>
-            <h3 class="grade-title">Grade 6</h3>
-            <p class="grade-stats">
-              Age 11-12 years • 92 games • 238 worksheets
-            </p>
-            <p class="resource-description">
-              Final year of primary education, preparing learners for transition
-              to junior secondary with comprehensive curriculum coverage.
-            </p>
-            <button class="grade-button">Explore Grade 6 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #fff3e0">7️⃣</div>
-            <h3 class="grade-title">Grade 7 (JSS 1)</h3>
-            <p class="grade-stats">
-              Age 12-13 years • 96 games • 254 worksheets
-            </p>
-            <p class="resource-description">
-              First year of junior secondary with exploratory curriculum, career
-              guidance, and pre-vocational skills.
-            </p>
-            <button class="grade-button">Explore Grade 7 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #e8f5e8">8️⃣</div>
-            <h3 class="grade-title">Grade 8 (JSS 2)</h3>
-            <p class="grade-stats">
-              Age 13-14 years • 98 games • 268 worksheets
-            </p>
-            <p class="resource-description">
-              Intermediate junior secondary with deeper exploration of learning
-              areas and talent development.
-            </p>
-            <button class="grade-button">Explore Grade 8 Resources</button>
-          </div>
-
-          <div class="grade-card">
-            <div class="grade-icon" style="background: #e3f2fd">9️⃣</div>
-            <h3 class="grade-title">Grade 9 (JSS 3)</h3>
-            <p class="grade-stats">
-              Age 14-15 years • 102 games • 284 worksheets
-            </p>
-            <p class="resource-description">
-              Final year of junior secondary, preparing for senior school
-              placement with comprehensive assessment preparation.
-            </p>
-            <button class="grade-button">Explore Grade 9 Resources</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Worksheets Page Content -->
-      <div id="worksheets-page" class="page-content" style="display: none">
-        <section class="page-hero">
-          <h1 class="page-title">Printable Worksheets & Resources</h1>
-          <p class="page-description">
-            Download and print high-quality CBC-aligned worksheets for all
-            subjects and grade levels
-          </p>
-        </section>
-
-        <div class="resources-grid">
-          <div class="resource-card">
-            <div class="resource-icon">📝</div>
-            <h3 class="resource-title">Mathematics Worksheets</h3>
-            <p class="resource-description">
-              Practice problems, exercises, and activities covering all CBC
-              mathematics competencies from PP1 to Grade 9.
-            </p>
-            <button class="resource-button">Browse Worksheets</button>
-          </div>
-
-          <div class="resource-card">
-            <div class="resource-icon">📚</div>
-            <h3 class="resource-title">English Language</h3>
-            <p class="resource-description">
-              Reading comprehension, grammar, vocabulary, and writing exercises
-              aligned with CBC English curriculum.
-            </p>
-            <button class="resource-button">Browse Worksheets</button>
-          </div>
-
-          <div class="resource-card">
-            <div class="resource-icon">🇰🇪</div>
-            <h3 class="resource-title">Kiswahili Worksheets</h3>
-            <p class="resource-description">
-              Language practice, comprehension, and grammar exercises for all
-              grade levels in Kiswahili.
-            </p>
-            <button class="resource-button">Browse Worksheets</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Teachers Hub Page Content -->
-      <div id="teachers-hub-page" class="page-content" style="display: none">
-        <section class="page-hero">
-          <h1 class="page-title">Teachers Hub</h1>
-          <p class="page-description">
-            Resources, tools, and support for educators implementing CBC
-            curriculum
-          </p>
-        </section>
-
-        <div class="resources-grid">
-          <div class="resource-card">
-            <div class="resource-icon">📋</div>
-            <h3 class="resource-title">Lesson Plans</h3>
-            <p class="resource-description">
-              Comprehensive CBC lesson plans for all subjects, complete with
-              learning objectives and activities.
-            </p>
-            <button class="resource-button">Access Lesson Plans</button>
-          </div>
-
-          <div class="resource-card">
-            <div class="resource-icon">📊</div>
-            <h3 class="resource-title">Assessment Tools</h3>
-            <p class="resource-description">
-              Rubrics, checklists, and evaluation templates for CBC
-              competency-based assessment.
-            </p>
-            <button class="resource-button">View Assessment Tools</button>
-          </div>
-
-          <div class="resource-card">
-            <div class="resource-icon">🎮</div>
-            <h3 class="resource-title">Game Integration Guide</h3>
-            <p class="resource-description">
-              Learn how to effectively incorporate ChezaAI games into your
-              classroom teaching.
-            </p>
-            <button class="resource-button">Read Guide</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Parents Hub Page Content -->
-      <div id="parents-hub-page" class="page-content" style="display: none">
-        <section class="page-hero">
-          <h1 class="page-title">Parents Hub</h1>
-          <p class="page-description">
-            Support your child's learning journey with CBC-aligned resources and
-            guidance
-          </p>
-        </section>
-
-        <div class="resources-grid">
-          <div class="resource-card">
-            <div class="resource-icon">👨‍👩‍👧‍👦</div>
-            <h3 class="resource-title">Understanding CBC</h3>
-            <p class="resource-description">
-              Learn about the Competency-Based Curriculum and how to support
-              your child's learning at home.
-            </p>
-            <button class="resource-button">Learn More</button>
-          </div>
-
-          <div class="resource-card">
-            <div class="resource-icon">📊</div>
-            <h3 class="resource-title">Progress Reports</h3>
-            <p class="resource-description">
-              View your child's progress across games and activities to
-              understand their learning journey.
-            </p>
-            <button class="resource-button">View Reports</button>
-          </div>
-
-          <div class="resource-card">
-            <div class="resource-icon">🎯</div>
-            <h3 class="resource-title">Learning Activities</h3>
-            <p class="resource-description">
-              Find fun, educational activities to do at home that reinforce CBC
-              competencies.
-            </p>
-            <button class="resource-button">Browse Activities</button>
           </div>
         </div>
       </div>
@@ -1469,7 +1132,7 @@
             <h3>Educational Tools</h3>
             <ul>
               <li><a href="#">Learning Library</a></li>
-              <li><a href="#worksheets">Worksheets</a></li>
+              <li><a href="worksheets.html">Worksheets</a></li>
               <li><a href="#games">Games</a></li>
               <li><a href="#">Interactive Worksheets</a></li>
               <li><a href="#">Worksheet Generator</a></li>
@@ -1497,8 +1160,8 @@
             <h3>Connect</h3>
             <ul>
               <li><a href="#">Blog</a></li>
-              <li><a href="#teachers-hub">Teacher Community</a></li>
-              <li><a href="#parents-hub">Parent Resources</a></li>
+              <li><a href="teachers-hub.html">Teacher Community</a></li>
+              <li><a href="parents-hub.html">Parent Resources</a></li>
               <li><a href="#">Newsletter</a></li>
               <li><a href="#">WhatsApp Support</a></li>
               <li><a href="#">Facebook</a></li>
@@ -1568,20 +1231,15 @@
     <script>
       // Simple page routing for demonstration
       document.addEventListener("DOMContentLoaded", function () {
-        // Get current page from URL hash or default to home
-        let page = window.location.hash.substring(1) || "home";
+        // Get current page from URL or default to home
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = urlParams.get("page") || "home";
 
         // Show the appropriate page
         showPage(page);
 
         // Update navigation links
         updateNavigation();
-
-        // Listen for hash changes
-        window.addEventListener("hashchange", function () {
-          page = window.location.hash.substring(1) || "home";
-          showPage(page);
-        });
       });
 
       function showPage(page) {
@@ -1601,16 +1259,12 @@
       }
 
       function updateNavigation() {
-        // Update navigation links to use hash navigation
+        // Update navigation links to include page parameter
         document.querySelectorAll(".nav-menu a").forEach((link) => {
           const href = link.getAttribute("href");
-          if (href && href.startsWith("#")) {
-            link.addEventListener("click", function (e) {
-              e.preventDefault();
-              const page = href.substring(1);
-              window.location.hash = page;
-              showPage(page);
-            });
+          if (href && !href.includes("#")) {
+            const pageName = href.replace(".html", "");
+            link.href = `?page=${pageName}`;
           }
         });
       }
