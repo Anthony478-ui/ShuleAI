@@ -1119,12 +1119,13 @@
                     <span class="tag tag-cbc">Environmental Ed</span>
                   </div>
                   <div class="game-actions">
-                    <a
-                      href="games/plantgrowth_game.html"
-                      style="text-decoration: none"
+                    <button
+                      class="play-button"
+                      onclick="openPaymentModal('Plant Growth Challenge')"
                     >
-                      <button class="play-button">Play Now</button>
-                    </a>
+                      Play Now
+                    </button>
+
                     <button class="secondary-button">Details</button>
                   </div>
                 </div>
@@ -1134,6 +1135,92 @@
         </div>
       </div>
     </main>
+    <div class="payment-modal" id="paymentModal">
+      <div class="payment-content">
+        <div class="payment-header">
+          <h2 class="payment-title">Subscribe to Play</h2>
+          <p class="payment-subtitle" id="selectedGameTitle">
+            Choose your subscription plan
+          </p>
+        </div>
+
+        <div class="subscription-plans">
+          <div class="plan-card" onclick="selectPlan('weekly')">
+            <div class="plan-header">
+              <div class="plan-name">Weekly Access</div>
+              <div class="plan-price">KSh 200</div>
+            </div>
+            <div class="plan-period">7 days full access</div>
+            <ul class="plan-features">
+              <li>Unlimited game access</li>
+              <li>All mathematics games</li>
+              <li>Progress tracking</li>
+              <li>Email support</li>
+            </ul>
+          </div>
+
+          <div class="plan-card selected" onclick="selectPlan('monthly')">
+            <div class="plan-badge">Most Popular</div>
+            <div class="plan-header">
+              <div class="plan-name">Monthly Access</div>
+              <div class="plan-price">KSh 2,500</div>
+            </div>
+            <div class="plan-period">30 days full access</div>
+            <ul class="plan-features">
+              <li>Unlimited game access</li>
+              <li>All mathematics games</li>
+              <li>Progress tracking</li>
+              <li>Priority support</li>
+              <li>Parent progress reports</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+          Please check your phone number and try again.
+        </div>
+
+        <div class="payment-form">
+          <div class="form-group">
+            <label class="form-label" for="phoneNumber"
+              >MPesa Phone Number</label
+            >
+            <input
+              type="tel"
+              class="form-input"
+              id="phoneNumber"
+              placeholder="07XX XXX XXX"
+              maxlength="10"
+              oninput="formatPhoneNumber(this)"
+            />
+            <small style="color: #666; font-size: 0.9rem"
+              >Enter your MPesa registered phone number</small
+            >
+          </div>
+        </div>
+
+        <div class="payment-actions">
+          <button class="cancel-button" onclick="closePaymentModal()">
+            Cancel
+          </button>
+          <button class="pay-button" id="payButton" onclick="processPayment()">
+            Pay with MPesa
+          </button>
+        </div>
+
+        <div class="payment-processing" id="paymentProcessing">
+          <div class="processing-spinner"></div>
+          <h3>Processing Payment</h3>
+          <p>Please check your phone for MPesa prompt...</p>
+        </div>
+
+        <div class="success-message" id="successMessage">
+          <div class="success-icon">✅</div>
+          <h3>Payment Successful!</h3>
+          <p>Your subscription has been activated. Redirecting to game...</p>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container">
@@ -1237,6 +1324,7 @@
         </div>
       </div>
     </footer>
+    ]
 
     <script>
       // Simple page routing for demonstration
@@ -1278,6 +1366,195 @@
           }
         });
       }
+    </script>
+
+    <script>
+      let selectedPlan = "monthly";
+      let selectedGame = "";
+
+      // Map game titles to game file paths (keeps payment redirect consistent)
+      const gameMap = {
+        "Science Safari Lab": "games/science_safari_lab.html",
+        "Plant Growth Challenge": "games/plantgrowth_game.html",
+        "Geometry Giraffes": "games/geometry_giraffes_game (1) (2).html",
+        "Grammar Safari": "games/gramer_safari.html",
+      };
+
+      function openPaymentModal(gameTitle) {
+        selectedGame = gameTitle;
+        document.getElementById(
+          "selectedGameTitle"
+        ).textContent = `Subscribe to ${gameTitle}`;
+        document.getElementById("paymentModal").classList.add("active");
+        resetPaymentUI();
+      }
+
+      function closePaymentModal() {
+        document.getElementById("paymentModal").classList.remove("active");
+        resetPaymentUI();
+      }
+
+      function selectPlan(plan) {
+        selectedPlan = plan;
+
+        // Update UI
+        document.querySelectorAll(".plan-card").forEach((card) => {
+          card.classList.remove("selected");
+        });
+
+        event.currentTarget.classList.add("selected");
+      }
+
+      function formatPhoneNumber(input) {
+        // Remove all non-digit characters
+        let phone = input.value.replace(/\D/g, "");
+
+        // Ensure it starts with 254 for MPesa
+        if (phone.startsWith("0")) {
+          phone = "254" + phone.substring(1);
+        } else if (phone.startsWith("7")) {
+          phone = "254" + phone;
+        }
+
+        // Limit to 12 digits (254XXXXXXXXX)
+        phone = phone.substring(0, 12);
+        input.value = phone;
+      }
+
+      function validatePhoneNumber(phone) {
+        // MPesa numbers should be 12 digits starting with 254
+        const phoneRegex = /^254[17]\d{8}$/;
+        return phoneRegex.test(phone);
+      }
+
+      function resetPaymentUI() {
+        document.getElementById("phoneNumber").value = "";
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("paymentProcessing").style.display = "none";
+        document.getElementById("successMessage").style.display = "none";
+        document.getElementById("payButton").disabled = false;
+        document.getElementById("payButton").textContent = "Pay with MPesa";
+      }
+
+      function processPayment() {
+        const phoneNumber = document.getElementById("phoneNumber").value;
+        const payButton = document.getElementById("payButton");
+
+        // Validate phone number
+        if (!validatePhoneNumber(phoneNumber)) {
+          document.getElementById("errorMessage").style.display = "block";
+          return;
+        }
+
+        // Show processing state
+        payButton.disabled = true;
+        payButton.textContent = "Processing...";
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("paymentProcessing").style.display = "block";
+
+        // Determine amount based on selected plan
+        const amount = selectedPlan === "weekly" ? 200 : 2500;
+
+        // Simulate Daraja API call (in real implementation, this would be a server-side call)
+        simulateDarajaPayment(phoneNumber, amount);
+      }
+
+      function simulateDarajaPayment(phoneNumber, amount) {
+        // This is a simulation - in real implementation, you would call your backend
+        // which then calls the Safaricom Daraja API
+
+        console.log(
+          `Initiating MPesa payment: ${phoneNumber}, Amount: ${amount}`
+        );
+
+        // Simulate API delay
+        setTimeout(() => {
+          // Simulate successful payment (80% success rate for demo)
+          const isSuccess = Math.random() > 0.2;
+
+          if (isSuccess) {
+            showPaymentSuccess();
+          } else {
+            showPaymentError();
+          }
+        }, 3000);
+      }
+
+      function showPaymentSuccess() {
+        document.getElementById("paymentProcessing").style.display = "none";
+        document.getElementById("successMessage").style.display = "block";
+
+        // Redirect to game after 3 seconds
+        setTimeout(() => {
+          const gamePath = gameMap[selectedGame];
+          if (gamePath) {
+            window.location.href = gamePath;
+          } else {
+            // fallback: notify and close modal
+            alert(`Game file not found for ${selectedGame}`);
+            closePaymentModal();
+          }
+        }, 3000);
+      }
+
+      function showPaymentError() {
+        document.getElementById("paymentProcessing").style.display = "none";
+        document.getElementById("errorMessage").style.display = "block";
+        document.getElementById("errorMessage").textContent =
+          "Payment failed. Please check your phone number and ensure you have sufficient funds.";
+
+        document.getElementById("payButton").disabled = false;
+        document.getElementById("payButton").textContent = "Pay with MPesa";
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("paymentModal")
+        .addEventListener("click", function (event) {
+          if (event.target === this) {
+            closePaymentModal();
+          }
+        });
+
+      // Keyboard support
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closePaymentModal();
+        }
+      });
+
+      // Real Daraja API integration would look something like this:
+      /*
+        async function processRealDarajaPayment(phoneNumber, amount) {
+            try {
+                const response = await fetch('/api/initiate-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        phoneNumber: phoneNumber,
+                        amount: amount,
+                        accountReference: selectedGame,
+                        transactionDesc: `Subscription for ${selectedGame}`
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Payment initiated successfully
+                    // Wait for callback from Daraja
+                    await waitForPaymentConfirmation(data.checkoutRequestID);
+                } else {
+                    throw new Error(data.message);
+                }
+            } catch (error) {
+                console.error('Payment error:', error);
+                showPaymentError();
+            }
+        }
+        */
     </script>
   </body>
 </html>
